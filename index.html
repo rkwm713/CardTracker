@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Filter Power-Up</title>
+</head>
+<body>
+  <!-- Include Trello Power-Up client library -->
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <script>
+    TrelloPowerUp.initialize({
+      'board-buttons': function(t, options) {
+        return [{
+          text: 'Advanced Filter',
+          callback: function(t) {
+            return t.popup({
+              title: 'Advanced Filter Settings',
+              url: 'popout.html',
+              height: 350
+            });
+          }
+        }];
+      }
+    });
+  </script>
+</body>
+</html>
