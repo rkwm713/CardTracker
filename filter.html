@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Filter Settings</title>
+  <style>
+    /* Basic styling for your form */
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label { display: block; margin: 10px 0 5px; }
+    input, select, button { width: 100%; padding: 8px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <form id="filter-form">
+    <label for="filter-date">Select a Date:</label>
+    <input type="date" id="filter-date" name="filter-date">
+
+    <label for="filter-member">Select a Member:</label>
+    <select id="filter-member" name="filter-member">
+      <option value="">All Members</option>
+    </select>
+
+    <button type="submit">Apply Filter</button>
+  </form>
+
+  <!-- Include Trello's Power-Up client library -->
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <script src="filter.js"></script>
+</body>
+</html>
