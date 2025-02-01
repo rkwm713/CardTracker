@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Filter Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link to your CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <h1 id="title">Filter Settings</h1>
+    <!-- Loading spinner (hidden by default) -->
+    <div id="loading" aria-live="polite" class="hidden">Loading board members…</div>
+    <!-- Error message area -->
+    <div id="error" role="alert" class="hidden"></div>
+    <!-- Filter form -->
+    <form id="filter-form" aria-labelledby="title">
+      <label for="filter-date">Select a Date:</label>
+      <input type="date" id="filter-date" name="filter-date" aria-required="true">
+
+      <label for="filter-member">Select a Member:</label>
+      <select id="filter-member" name="filter-member" aria-required="true">
+        <option value="">All Members</option>
+      </select>
+
+      <div class="buttons">
+        <button type="submit" id="apply-btn">Apply Filter</button>
+        <button type="button" id="reset-btn">Reset Filter</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Include Trello Power-Up client library -->
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  <!-- Main logic -->
+  <script src="filter.js"></script>
+</body>
+</html>
