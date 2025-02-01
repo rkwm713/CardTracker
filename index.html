@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Member Activity Tracker Power-Up</title>
+    <!-- Include the Trello Power-Up client library -->
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+  </head>
+  <body>
+    <script>
+      TrelloPowerUp.initialize({
+        'board-buttons': function(t, options) {
+          return [{
+            text: 'Track Activity',
+            callback: function(t) {
+              return t.popup({
+                title: 'Track Member Activity',
+                url: './activity.html', // Ensure this URL points to your hosted popup page.
+                height: 500
+              });
+            }
+          }];
+        }
+      });
+    </script>
+  </body>
+</html>
