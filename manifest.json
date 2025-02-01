@@ -1,0 +1,21 @@
+{
+  "id": "https://rkwm713.github.io/CardTracker",
+  "name": "Advanced Filter Power-Up",
+  "description": "A production-ready Trello Power-Up that adds date and member filters to your board.",
+  "capabilities": [
+    "board-buttons",
+    "popout"
+  ],
+  "icons": {
+    "light": "https://rkwm713.github.io/CardTracker/smallblue.png",
+    "dark": "https://rkwm713.github.io/CardTracker/smallblue.png"
+  },
+  "connectors": {
+    "authorization": {
+      "type": "none"
+    }
+  },
+  "default": {
+    "popout": "https://rkwm713.github.io/CardTracker/popout.html"
+  }
+}
