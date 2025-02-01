@@ -1,0 +1,91 @@
+/* style.css */
+
+/* Basic resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Container styling */
+#container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Heading */
+#title {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+input[type="date"],
+select {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Buttons styling */
+button {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+#apply-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+#reset-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Loading and error messages */
+.hidden {
+  display: none;
+}
+
+#loading,
+#error {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+#error {
+  color: #dc3545;
+}
