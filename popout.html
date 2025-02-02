@@ -2,45 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Advanced Filter Settings</title>
+  <title>Card Activity Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Link to your CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="container">
-    <h1 id="title">Filter Settings</h1>
-    <!-- Loading spinner (hidden by default) -->
-    <div id="loading" aria-live="polite" class="hidden">Loading board members…</div>
-    <!-- Error message area -->
+    <h1 id="title">Card Activity Tracker</h1>
+    <p>Select a date range to load card move events.</p>
+    <!-- Loading indicator and error message -->
+    <div id="loading" aria-live="polite" class="hidden">Loading events…</div>
     <div id="error" role="alert" class="hidden"></div>
-    
-    <!-- Filter form -->
-    <form id="filter-form" aria-labelledby="title">
-      <label for="filter-start-date">Start Date:</label>
-      <input type="date" id="filter-start-date" name="filter-start-date" aria-required="true">
+    <!-- Date range form -->
+    <form id="range-form">
+      <label for="start-date">From:</label>
+      <input type="date" id="start-date" name="start-date" required>
 
-      <label for="filter-end-date">End Date:</label>
-      <input type="date" id="filter-end-date" name="filter-end-date" aria-required="true">
-      
-      <label for="filter-member">Select a Member:</label>
-      <select id="filter-member" name="filter-member" aria-required="true">
-        <option value="">All Members</option>
-      </select>
+      <label for="end-date">To:</label>
+      <input type="date" id="end-date" name="end-date" required>
 
-      <div class="buttons">
-        <button type="submit" id="apply-btn">Apply Filter</button>
-        <button type="button" id="reset-btn">Reset Filter</button>
-      </div>
+      <button type="submit" id="export-btn">Load & Export CSV</button>
     </form>
-    
-    <!-- Results area for filtered cards -->
-    <div id="results" aria-live="polite"></div>
+    <!-- Results table (populated dynamically) -->
+    <div id="results" class="hidden">
+      <h2>Activity Log</h2>
+      <table id="activity-table">
+        <thead>
+          <tr>
+            <th>Card Name</th>
+            <th>Moved By</th>
+            <th>From List</th>
+            <th>To List</th>
+            <th>Time in Previous List</th>
+            <th>Action Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows injected here -->
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <!-- Include Trello Power-Up client library -->
+  <!-- Trello Power-Up client library -->
   <script src="https://p.trellocdn.com/power-up.min.js"></script>
-  <!-- Main logic -->
-  <script src="filter.js"></script>
+  <!-- Main tracker logic -->
+  <script src="tracker.js"></script>
 </body>
 </html>
