@@ -1,3 +1,4 @@
+const t = TrelloPowerUp.iframe();
 async function onLoadExport(event) {
   event.preventDefault();
   clearMessages();
@@ -89,3 +90,4 @@ function exportCSV(data) {
   link.click();
   document.body.removeChild(link);
 }
+  document.getElementById('range-form').addEventListener('submit', onLoadExport);
