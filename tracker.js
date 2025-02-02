@@ -59,4 +59,32 @@ async function onLoadExport(event) {
   } finally {
     hideElement('loading');
   }
+  function exportCSV(data) {
+  // Create CSV header
+  const headers = ['Card Name', 'Moved By', 'From List', 'To List', 'Time in Previous List', 'Action Date'];
+  
+  // Convert data to CSV format
+  const csvContent = [
+    headers.join(','),
+    ...data.map(row => [
+      `"${row.cardName}"`,
+      `"${row.movedBy}"`,
+      `"${row.fromList}"`,
+      `"${row.toList}"`,
+      `"${row.timeInList}"`,
+      `"${row.actionDate}"`
+    ].join(','))
+  ].join('\n');
+
+  // Create and trigger download
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  link.setAttribute('href', url);
+  link.setAttribute('download', 'card_activity_report.csv');
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 }
