@@ -59,7 +59,9 @@ async function onLoadExport(event) {
   } finally {
     hideElement('loading');
   }
-  function exportCSV(data) {
+}
+
+function exportCSV(data) {
   // Create CSV header
   const headers = ['Card Name', 'Moved By', 'From List', 'To List', 'Time in Previous List', 'Action Date'];
   
@@ -86,5 +88,4 @@ async function onLoadExport(event) {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-}
 }
