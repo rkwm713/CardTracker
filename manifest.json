@@ -1,14 +1,13 @@
 {
-  "id": "https://rkwm713.github.io/CardTracker",
-  "name": "Advanced Filter Power-Up",
-  "description": "A production-ready Trello Power-Up that adds date and member filters to your board.",
+  "id": "https://rkwm713.github.io/CardTracker/",
+  "name": "Card Activity Tracker",
+  "description": "Tracks card movements (card name, mover, source and destination lists, and time spent) with exportable data for a given date range.",
   "capabilities": [
-    "board-buttons",
     "popout"
   ],
   "icons": {
-    "light": "https://rkwm713.github.io/CardTracker/smallblue.png",
-    "dark": "https://rkwm713.github.io/CardTracker/smallblue.png"
+    "light": "https://rkwm713.github.io/CardTracker/bluesmall.png",
+    "dark": "https://rkwm713.github.io/CardTracker/bluesmall.png"
   },
   "connectors": {
     "authorization": {
