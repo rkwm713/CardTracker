@@ -1,4 +1,18 @@
 const t = TrelloPowerUp.iframe();
+function clearMessages() {
+  // Clear any existing error messages
+  const errorElement = document.getElementById('error');
+  if (errorElement) {
+    errorElement.textContent = '';
+    errorElement.classList.add('hidden');
+  }
+  
+  // Clear any existing results
+  const resultsElement = document.getElementById('results');
+  if (resultsElement) {
+    resultsElement.classList.add('hidden');
+  }
+}
 async function onLoadExport(event) {
   event.preventDefault();
   clearMessages();
