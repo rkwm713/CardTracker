@@ -1,4 +1,3 @@
-// tracker.js
 'use strict';
 
 const t = TrelloPowerUp.iframe();
@@ -27,18 +26,24 @@ async function onLoadExport(event) {
     const boardId = boardData.id;
 
     // Fetch actions: filter updateCard:idList (card move events)
-    // The REST API endpoint: GET /1/boards/{id}/actions?filter=updateCard:idList&since={startDate}&before={endDate}
-    const actions = await t.rest('GET', `/1/boards/${boardId}/actions`, {
-      filter: 'updateCard:idList',
-      since: startDate,
-      before: endDate,
-      // You can request fields you need:
-      fields: 'id,date,data,memberCreator',
-      // Specify nested fields for lists and card info
-      memberCreator_fields: 'fullName',
-      // Request list names from data.before and data.after objects
-      // (Trello returns these if available.)
+    // Use t.request rather than t.rest:
+    const response = await t.request({
+      url: `/1/boards/${boardId}/actions`,
+      method: 'GET',
+      params: {
+        filter: 'updateCard:idList',
+        since: startDate,
+        before: endDate,
+        fields: 'id,date,data,memberCreator',
+        memberCreator_fields: 'fullName'
+      }
     });
+    
+    // Ensure we have an array of actions. Some responses may wrap your array in an "actions" property.
+    const actions = Array.isArray(response) ? response : response.actions;
+    if (!actions || !Array.isArray(actions)) {
+      throw new Error('Unexpected response structure');
+    }
 
     // Process actions: group by card id and sort chronologically
     const processedData = processActions(actions);
@@ -92,7 +97,7 @@ function processActions(actions) {
         const diffMs = new Date(next.date) - new Date(current.date);
         duration = formatDuration(diffMs);
       } else {
-        // For the last action, you might decide to show "In progress" or calculate up to now.
+        // For the last action, calculate duration up to now.
         const diffMs = Date.now() - new Date(current.date);
         duration = formatDuration(diffMs);
       }
